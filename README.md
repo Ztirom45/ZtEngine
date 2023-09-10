@@ -1,5 +1,5 @@
 # ZtEngine
-a 3d Engine using OpenGL and will power Alian Dungeons
+a 3d Engine using OpenGL and will power Alien Dungeons
 
 ##### Fetures
 - Shader support
