@@ -9,5 +9,11 @@ a 3d Engine using OpenGL
 - chunk support (Work in progress)
 ##### make
 ###### make sure you've installed SDL and glm
-- compile: `$ make`
-- run: `$ ./main`
+- compile: 
+```sh
+   make
+```
+- run: 
+```sh 
+   ./main
+```
