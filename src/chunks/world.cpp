@@ -24,7 +24,7 @@ World::World(GLuint TextureMap,Scene *ptrScene){
 		chunkz+=this->playerChunkPos.y-WORLD_SIZE_OFFSET;
 		chunkx+=this->playerChunkPos.x-WORLD_SIZE_OFFSET;
 		printf("chunkspos: %d %d\n",chunkx,chunkz);
-		this->chunks[i] = new Chunk(glm::vec3((float)chunkx,0.0f,(float)chunkz),this);
+		this->chunks[i] = new Chunk(glm::ivec3(chunkx,0.0f,chunkz),this);
 
 	}
 	this->isInit = true;
@@ -55,6 +55,9 @@ void World::updatePlayerChunkPos(){
 	if(this->ptrPlayer->position.x<0){playerChunkPos.x-=1;}
 	if(this->ptrPlayer->position.z<0){playerChunkPos.y-=1;}
 
+	printf("(%d %d)  (%f %f)\n",playerChunkPos.x,playerChunkPos.y,
+		this->ptrPlayer->position.x,this->ptrPlayer->position.z);
+
 
 	//move chunks
 	if(this->isInit){
@@ -79,9 +82,12 @@ void World::updatePlayerChunkPos(){
 
 void World::moveChunkPos(glm::ivec2 moveDirection){
 	for(int i=0;i<WORLD_SIZE;i++){
-		this->chunks[i]->position.x+=moveDirection.x;
-		this->chunks[i]->position.y+=moveDirection.y;
-		//TODO recycle existing chunks
+		int chunkz = (i/WORLD_SIZE);
+		int chunkx = (i-chunkz*WORLD_SIZE);
+		chunkz+=this->playerChunkPos.y-WORLD_SIZE_OFFSET;
+		chunkx+=this->playerChunkPos.x-WORLD_SIZE_OFFSET;
+		printf("chunkspos: %d %d\n",chunkx,chunkz);
+		this->chunks[i]->position = glm::vec3(chunkx*CHUNK_SIZE,0,chunkz*CHUNK_SIZE);
 	}
 	this->updateChunks();
 };

@@ -16,12 +16,12 @@ Take a look into world.hpp if you want to know more abbout the functions
 #include <chunks/world.hpp>
 #include <chunks/chunk.hpp>
 		
-Chunk::Chunk(glm::vec3 position_number,World* ptrWorld){
+Chunk::Chunk(glm::ivec3 position_number,World* ptrWorld){
 	this->ptrWorld = ptrWorld;
-	this->position = glm::vec3(
-		(int)position_number.x*CHUNK_SIZE,
-		(int)position_number.y*CHUNK_H,
-		(int)position_number.z*CHUNK_SIZE);
+	this->position = glm::ivec3(
+		position_number.x*CHUNK_SIZE,
+		position_number.y*CHUNK_H,
+		position_number.z*CHUNK_SIZE);
 	
 	this->ptrChunkMesh = new Mesh(
 		this->ptrWorld->ptrShader,
@@ -78,6 +78,9 @@ void Chunk::build_mesh(){
 	this->is_zero = !(bool)this->ptrChunkMesh->vertex_pos.size();
 	if(!this->is_zero){
 		this->ptrChunkMesh->update_mesh();
+	}else{
+		//allert if chunk is empty (shuoldn't happen)
+		printf("empty chunk allert\n");
 	}
 };
 

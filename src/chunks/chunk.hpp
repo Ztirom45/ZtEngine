@@ -12,7 +12,7 @@ config in chunk_build_helper
 
 class Chunk{
 	public:
-		glm::vec3 position;//position of chunk in the world
+		glm::ivec3 position;//position of chunk in the world
 		Uint8 data[CHUNK_VOL] = {0};
 		int** ptrAllChunkData = new int*[WORLD_AREA];
 		bool is_zero = true;
@@ -20,7 +20,7 @@ class Chunk{
 		Mesh *ptrChunkMesh;
 		
 		
-		Chunk(glm::vec3,World*);
+		Chunk(glm::ivec3,World*);
 		
 		//init function needs to be called after initialising OpenGL
 		void init();

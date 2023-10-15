@@ -22,7 +22,8 @@ class App{
 	
 	bool loop = true;
 	
-	FirstPersonPlayer *ptrPlayer = new FirstPersonPlayer(glm::vec3(-15.0f,32.0f,-15.0f),0.0f,0.0f,&loop);
+	FirstPersonPlayer *ptrPlayer = new FirstPersonPlayer(glm::vec3(16777215.0f,32.0f,10000.0f),0.0f,0.0f,&loop);
+	//it cant be bigger than 24bit in + and - becouase of glsl floats
 	Shader *ptrShader = new Shader(ptrPlayer);
 	Scene *ptrScene = new Scene(this->ptrShader,this->ptrPlayer);
 
@@ -128,6 +129,7 @@ class App{
 };
 
 int main(){
+	srand(time(NULL));//REMOVE later (debug purpose: random spawn position)
 	App app;
 	app.run();
 	return 0;

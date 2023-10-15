@@ -32,20 +32,21 @@ bool is_block_void(int global_x,int global_y,int global_z,World* ptrWorld,glm::v
 		return true;
 	}
 
-	//cheaks if index out of range
+	//cheaks if index out of range (sholdn't happen)
 	int chunk_index = (int)(pos.x+pos.z*CHUNK_SIZE+pos.y*CHUNK_AREA);
 	if(chunk_index<0||chunk_index>=CHUNK_VOL){
 		printf("Chunk index overflow in is void index:%d!!!\n",chunk_index);
 		return true;
 	}
 	
-	//cheaks if chunk is in the World TODO
-	if(chunk_x < player_pos.x-1 || chunk_x >= player_pos.x+WORLD_SIZE ||
-	chunk_z < player_pos.y-1 || chunk_z >= player_pos.y+WORLD_SIZE){
+	//cheaks if chunk is in the World
+	
+	if(chunk_x < 0 || chunk_x >= WORLD_SIZE ||
+	chunk_z < 0 || chunk_z >= WORLD_SIZE){
 		return true;
 	}
 	
-	//cheaks if the chunkindex is out of range	
+	//cheaks if the chunkindex is out of range (shouldn't happen)	
 	int world_index = chunk_x+chunk_z*WORLD_SIZE;//TODO
 	if(world_index < 0 || world_index > WORLD_AREA){
 		printf("Error world index out of range (index:%d)/n",world_index);
