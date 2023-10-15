@@ -5,7 +5,7 @@ a 3d Engine using OpenGL and will power Alien Dungeons
 - Shader support
 - FirstPersonCamera
 - mesh class
-- chunk support (Work in progress)
+- chunk support
 ##### make
 ###### make sure you've installed SDL and glm
 - compile: 

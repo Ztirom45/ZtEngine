@@ -22,8 +22,8 @@ class App{
 	
 	bool loop = true;
 	
-	FirstPersonPlayer *ptrPlayer = new FirstPersonPlayer(glm::vec3(16777215.0f,32.0f,10000.0f),0.0f,0.0f,&loop);
-	//it cant be bigger than 24bit in + and - becouase of glsl floats
+	FirstPersonPlayer *ptrPlayer = new FirstPersonPlayer(glm::vec3(0.0f,32.0f,0.0f),0.0f,0.0f,&loop);
+	//it cant be bigger than 24bit in + and - becouase of glsl floats (could be buggi by to high numbers)
 	Shader *ptrShader = new Shader(ptrPlayer);
 	Scene *ptrScene = new Scene(this->ptrShader,this->ptrPlayer);
 

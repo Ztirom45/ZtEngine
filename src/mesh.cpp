@@ -332,7 +332,8 @@ void Mesh::setup_mesh(){
 }
 
 void Mesh::update_mesh(){
-	
+	//update model matrix
+	this->update_model_matrix();
 	//bind VAO
 	glBindVertexArray(this->VertexArrayObject);
 

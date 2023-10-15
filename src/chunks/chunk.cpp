@@ -49,7 +49,12 @@ void Chunk::clear(){
 };
 
 void Chunk::build_mesh(){
+	//update mesh pos
+	this->ptrChunkMesh->model_pos = this->position;
+
+	//clear old data
 	this->ptrChunkMesh->clear();
+	
 	int global_x,global_y,global_z;
 
 	//get chunk, witch the player is within

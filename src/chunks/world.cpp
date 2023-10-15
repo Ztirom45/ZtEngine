@@ -37,13 +37,6 @@ void World::init(){
 	}
 };
 
-void World::updateChunks(){
-	//update all chunks
-	for(int i=0;i<WORLD_AREA;i++){
-		this->chunks[i]->update();
-	}
-};
-
 void World::updatePlayerChunkPos(){
 	//old playerChunkPos
 	glm::ivec2 oldPlayerChunkPos = this->playerChunkPos;
@@ -74,14 +67,14 @@ void World::updatePlayerChunkPos(){
 			printf("update Y\n");
 		}
 		if(moved){
-			//this->moveChunkPos(moveDirection);
+			this->moveChunkPos(moveDirection);
 		}
 	}
 	
 };
 
 void World::moveChunkPos(glm::ivec2 moveDirection){
-	for(int i=0;i<WORLD_SIZE;i++){
+	for(int i=0;i<WORLD_AREA;i++){
 		int chunkz = (i/WORLD_SIZE);
 		int chunkx = (i-chunkz*WORLD_SIZE);
 		chunkz+=this->playerChunkPos.y-WORLD_SIZE_OFFSET;
@@ -89,7 +82,11 @@ void World::moveChunkPos(glm::ivec2 moveDirection){
 		printf("chunkspos: %d %d\n",chunkx,chunkz);
 		this->chunks[i]->position = glm::vec3(chunkx*CHUNK_SIZE,0,chunkz*CHUNK_SIZE);
 	}
-	this->updateChunks();
+	
+	//update all chunks
+	for(int i=0;i<WORLD_AREA;i++){
+		this->chunks[i]->update();
+	}	
 };
 
 void World::update(){

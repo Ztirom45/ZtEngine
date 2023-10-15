@@ -27,9 +27,6 @@ class World{
 		//init after openGL intialisazion
 		void init();
 	
-		//updates every chunk
-		void updateChunks();
-
 		//updates playerChunksPos if changed
 		void updatePlayerChunkPos();
 		
