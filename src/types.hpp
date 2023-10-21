@@ -2,6 +2,7 @@
 
 #define splitVec3(vector) (vector.x,vector.y,vector.z)
 #define splitVec3I(vector) ((int)vector.x,(int)vector.y,(int)vector.z)
+#define splitVec3Cout(vector) vector.x << " " << vector.y << " " << vector.z
 
 typedef struct _RectF{
 	float x;

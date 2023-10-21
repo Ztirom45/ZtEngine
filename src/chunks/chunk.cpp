@@ -58,7 +58,7 @@ void Chunk::build_mesh(){
 	int global_x,global_y,global_z;
 
 	//get chunk, witch the player is within
-	const glm::vec2 PlayerChunkPos = this->ptrWorld->playerChunkPos;
+	glm::ivec2 PlayerChunkPos = this->ptrWorld->playerChunkPos;
 
 	for(int x=0;x<CHUNK_SIZE;x++){for(int z=0;z<CHUNK_SIZE;z++){for(int y=0;y<CHUNK_H;y++){
 		global_x = x+position.x;

@@ -74,18 +74,49 @@ void World::updatePlayerChunkPos(){
 };
 
 void World::moveChunkPos(glm::ivec2 moveDirection){
+	//TODO copiing memory corectly
+	//array that will be copied into chunks after moving and index changing
+	
+	Chunk *chunks_copy[WORLD_AREA];
+
 	for(int i=0;i<WORLD_AREA;i++){
 		int chunkz = (i/WORLD_SIZE);
 		int chunkx = (i-chunkz*WORLD_SIZE);
+		
+		//old positioon of the data for this chunk
+		int old_chunk_x_index = chunkx+moveDirection.x;
+		//std::cout << chunkx << " " << old_chunk_x_index << "\n";
+		int old_chunk_z_index = chunkz+moveDirection.y;
+		
+		int old_chunk_index = old_chunk_x_index+old_chunk_z_index*WORLD_SIZE;
+		
 		chunkz+=this->playerChunkPos.y-WORLD_SIZE_OFFSET;
 		chunkx+=this->playerChunkPos.x-WORLD_SIZE_OFFSET;
-		printf("chunkspos: %d %d\n",chunkx,chunkz);
-		this->chunks[i]->position = glm::vec3(chunkx*CHUNK_SIZE,0,chunkz*CHUNK_SIZE);
+		
+		
+		
+		std::cout << i << " " << old_chunk_index << "\n";
+		if(0 <= old_chunk_x_index && old_chunk_x_index < WORLD_SIZE &&
+		   0 <= old_chunk_z_index && old_chunk_z_index < WORLD_SIZE){
+			chunks_copy[i] = this->chunks[old_chunk_x_index+old_chunk_z_index*WORLD_SIZE]
+			;	
+		}else{
+			old_chunk_x_index -= WORLD_SIZE*moveDirection.x;
+			old_chunk_z_index -= WORLD_SIZE*moveDirection.y;
+			chunks_copy[i] = this->chunks[old_chunk_x_index+old_chunk_z_index*WORLD_SIZE];
+			chunks_copy[i]->position = glm::ivec3(chunkx*CHUNK_SIZE,0,chunkz*CHUNK_SIZE);
+			chunks_copy[i]->build_voxels();
+
+
+		}
+
 	}
 	
 	//update all chunks
 	for(int i=0;i<WORLD_AREA;i++){
-		this->chunks[i]->update();
+		this->chunks[i] = chunks_copy[i];
+		this->chunks[i]->build_mesh();
+		
 	}	
 };
 
