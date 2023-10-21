@@ -12,6 +12,7 @@ Importend: take a look ino chunk_build_helper.hpp if you want to know more abbou
 #include <chunks/world.hpp>
 #include <chunks/chunk_build_helper.hpp>
 
+//IMPORTENT: only for visual use
 bool is_block_void(int global_x,int global_y,int global_z,World* ptrWorld,glm::vec2 player_pos){
 	//calculates all nessesary position relations
 	
@@ -26,9 +27,14 @@ bool is_block_void(int global_x,int global_y,int global_z,World* ptrWorld,glm::v
 	int local_z = global_z-(chunk_z*CHUNK_SIZE);
 
 	glm::vec3 pos = glm::vec3(local_x,local_y,local_z);
+	
+	//mesh build improvements
+	if(pos.y == -1 || pos.x < 0 || pos.z < 0){
+		return false;
+	}
 
 	//cheacks if cube is in a chunk
-	if(pos.x < 0 || pos.x >= CHUNK_SIZE || pos.y < 0 || pos.y >= CHUNK_H || pos.z < 0 || pos.z >= CHUNK_SIZE){
+	if(pos.x < 0 || pos.x >= CHUNK_SIZE || pos.y < 0 || pos.y >= CHUNK_H || pos.z < 0 || pos.z >= CHUNK_SIZE){	
 		return true;
 	}
 
@@ -39,11 +45,11 @@ bool is_block_void(int global_x,int global_y,int global_z,World* ptrWorld,glm::v
 		return true;
 	}
 	
-	//cheaks if chunk is in the World
+	//cheaks if chunk is in the World visual inprovment
 	
 	if(chunk_x < 0 || chunk_x >= WORLD_SIZE ||
 	chunk_z < 0 || chunk_z >= WORLD_SIZE){
-		return true;
+		return false;
 	}
 	
 	//cheaks if the chunkindex is out of range (shouldn't happen)	

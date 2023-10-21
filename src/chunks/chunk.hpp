@@ -23,10 +23,7 @@ class Chunk{
 		Chunk(glm::ivec3,World*);
 		
 		//init function needs to be called after initialising OpenGL
-		void init();
-
-		//update chunk
-		void update();
+		void init_mesh();
 
 		//fill chunk with type void(0)
 		void clear();

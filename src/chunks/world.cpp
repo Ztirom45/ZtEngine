@@ -33,7 +33,12 @@ World::World(GLuint TextureMap,Scene *ptrScene){
 void World::init(){
 	//init all element in chunks
 	for(int i=0;i<WORLD_AREA;i++){
-		this->chunks[i]->init();
+		this->chunks[i]->init_mesh();
+		this->chunks[i]->build_voxels();
+	}
+	//build mesh must happen after building chunks!!!
+	for(int i=0;i<WORLD_AREA;i++){
+		this->chunks[i]->build_mesh();
 	}
 };
 

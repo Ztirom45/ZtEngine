@@ -33,15 +33,9 @@ Chunk::Chunk(glm::ivec3 position_number,World* ptrWorld){
 	
 }
 
-void Chunk::init(){
+void Chunk::init_mesh(){
 	this->ptrChunkMesh->setup_mesh();
-	this->update();
-}
-void Chunk::update(){
-	this->build_voxels();
-	this->build_mesh();
-}
-
+};
 void Chunk::clear(){
 	for(int i=0;i<CHUNK_VOL;i++){
 		this->data[i] = 0;
