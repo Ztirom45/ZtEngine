@@ -7,8 +7,9 @@ you can take a look into the header
 */
 #include <config.hpp>
 #include <camera/camera.hpp>
-Camera::Camera(glm::vec3 pos,float yaw,float pitch){	
+Camera::Camera(glm::vec3 pos,float dist,float yaw,float pitch){	
 	this->position = pos;
+	this->distanceToCenter = dist;
 	this->yaw = yaw;
 	this->pitch = pitch;
 	
@@ -29,7 +30,12 @@ void Camera::update_camera(){
 };
 
 void Camera::update_view_matrix(){
-	this->m_view = glm::lookAt(this->position,this->position + this->forward,this->up);
+	if(this->distanceToCenter > 0){
+		glm::vec3 positionAndDistance = this->position + this->forward * (-1.0f * this->distanceToCenter);
+		this->m_view = glm::lookAt(positionAndDistance,positionAndDistance + this->forward,this->up);
+	}else{
+		this->m_view = glm::lookAt(this->position,this->position + this->forward,this->up);
+	}
 };
 
 void Camera::update_vectors(){

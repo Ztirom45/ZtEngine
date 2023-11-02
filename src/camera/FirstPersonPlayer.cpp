@@ -7,8 +7,10 @@ TIP if you want to know more about the functions take a look into the header
 #include <config.hpp>
 #include <camera/FirstPersonPlayer.hpp>
 
-FirstPersonPlayer::FirstPersonPlayer(glm::vec3 pos,float yaw,float pitch,bool *LoopConditionVar)
-	: Camera(pos,yaw,pitch){
+FirstPersonPlayer::FirstPersonPlayer(glm::vec3 pos,
+	float CameraDistanceToPlayer,float yaw,float pitch,
+	bool *LoopConditionVar)
+	:Camera(pos,CameraDistanceToPlayer,yaw,pitch){
 	this->loop = LoopConditionVar;
 }
 void FirstPersonPlayer::set_key_state(int position,bool state){

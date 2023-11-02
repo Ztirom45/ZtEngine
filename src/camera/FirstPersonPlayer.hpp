@@ -17,7 +17,7 @@ class FirstPersonPlayer: public Camera{
 		// a pointer to the condtion of the main loop,
 		// so that the loop could be quit, if the exit event is triggert
 		bool *loop;
-		FirstPersonPlayer(glm::vec3,float,float,bool*);
+		FirstPersonPlayer(glm::vec3,float,float,float,bool*);
 		
 			
 		//set and get keys states funciton to reduce data coruption

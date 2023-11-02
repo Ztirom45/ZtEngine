@@ -30,6 +30,12 @@ You need to define or replayce Win_W Win_H with your window resulution
 class Camera{
 	public:
 		glm::vec3 position;
+
+		//The camera rotates around the center (position) with
+		//a distance of distanceToCenter
+		//if the ditanceToCenter is = 0 the camera eill turn on the spot
+		float distanceToCenter;
+		
 		//angles
 		float yaw;
 		float pitch;
@@ -39,11 +45,12 @@ class Camera{
 		glm::vec3 right;
 		glm::vec3 forward;
 		
+		//matrices	
 		glm::mat4 m_proj;
 		glm::mat4 m_view;
 		
-		//constructor args: pos yaw roll
-		Camera(glm::vec3,float,float);
+		//constructor args: position ditanceToCenter yawAngle rollAngle
+		Camera(glm::vec3,float,float,float);
 		
 		
 		//update function
