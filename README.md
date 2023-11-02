@@ -3,7 +3,7 @@ a 3d Engine using OpenGL and will power Alien Dungeons
 
 ##### Fetures
 - Shader support
-- FirstPersonCamera
+- Camera system
 - mesh class
 - chunk support
 ##### make
