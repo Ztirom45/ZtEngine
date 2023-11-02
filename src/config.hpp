@@ -27,7 +27,7 @@
 #define Win_H 780
 
 #include <types.hpp>
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 #include <textures.hpp>
 #include <mesh.hpp>

@@ -18,7 +18,7 @@ class Shader{
 		glm::mat4 *ptr_m_proj;
 		
 		Shader(Camera*);
-		Shader(FirstPersonPlayer*);		
+		Shader(Player*);		
 		
 		//load vertex Shader Files arg: Filename
 		void load_vs_file(std::string);

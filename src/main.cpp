@@ -3,7 +3,7 @@
 #include <config.hpp>
 
 
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 #include <textures.hpp>
 #include <mesh.hpp>
@@ -22,8 +22,9 @@ class App{
 	
 	bool loop = true;
 	
-	FirstPersonPlayer *ptrPlayer = new FirstPersonPlayer(glm::vec3(0.0f,32.0f,0.0f),4.0f,0.0f,0.0f,&loop);
+	Player *ptrPlayer = new Player(glm::vec3(0.0f,32.0f,0.0f),4.0f,0.0f,0.0f,&loop);
 	//it cant be bigger than 24bit in + and - becouase of glsl floats (could be buggi by to high numbers)
+	
 	Shader *ptrShader = new Shader(ptrPlayer);
 	Scene *ptrScene = new Scene(this->ptrShader,this->ptrPlayer);
 

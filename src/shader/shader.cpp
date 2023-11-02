@@ -7,7 +7,7 @@ take a look into shaders.hpp if you want to know more abbout the functions
 */
 
 #include <config.hpp>
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 
 Shader::Shader(Camera* ptrCamera){
@@ -18,7 +18,7 @@ Shader::Shader(Camera* ptrCamera){
 	this->load_vs_file("src/shader/shader.vert");
 };
 
-Shader::Shader(FirstPersonPlayer* ptrPlayer){
+Shader::Shader(Player* ptrPlayer){
 	this->ptr_m_view = &ptrPlayer->m_view;
 	this->ptr_m_proj = &ptrPlayer->m_proj;
 	

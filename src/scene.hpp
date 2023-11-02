@@ -9,16 +9,16 @@ Scene liberry header from Ztrom45's ZtEngine
 class World;
 class Shader;
 class Texture;
-class FirstPersonPlayer;
+class Player;
 
 class Scene{
 	public:	
 		Shader *ptrShader;	
 		Textures *ptrTextures;
-		FirstPersonPlayer *ptrPlayer;
+		Player *ptrPlayer;
 		World* ptrWorld;
 
-		Scene(Shader*,FirstPersonPlayer*);
+		Scene(Shader*,Player*);
 		
 		~Scene();
 

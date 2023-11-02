@@ -6,7 +6,7 @@ TIP: if you want to know more abbout the functions,you can take a look int mesh.
 */
 
 #include <config.hpp>
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 #include <mesh.hpp>
 

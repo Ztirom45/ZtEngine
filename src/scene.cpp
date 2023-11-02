@@ -6,7 +6,7 @@ TIP: If you want to know more about the functions take a look into the header
 
 #include <config.hpp>
 
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 #include <textures.hpp>
 #include <mesh.hpp>
@@ -15,7 +15,7 @@ TIP: If you want to know more about the functions take a look into the header
 
 #include <scene.hpp>
 
-Scene::Scene(Shader* ptrShader,FirstPersonPlayer* ptrPlayer) {
+Scene::Scene(Shader* ptrShader,Player* ptrPlayer) {
 	this->ptrTextures = new Textures;
 	this->ptrShader = ptrShader;
 	this->ptrPlayer = ptrPlayer;

@@ -16,7 +16,7 @@ class World{
 		Shader *ptrShader;
 		GLuint TextureMap;
 		//player pos stuff
-		FirstPersonPlayer *ptrPlayer;
+		Player *ptrPlayer;
 		glm::ivec2 playerChunkPos = {0,0};
 		bool isInit = false;	
 		

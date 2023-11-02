@@ -4,7 +4,7 @@ Voxel Chunk build helper libery from Ztirom's ZtEngine
 Importend: take a look ino chunk_build_helper.hpp if you want to know more abbout the functions
 */
 #include <config.hpp>
-#include <camera/FirstPersonPlayer.hpp>
+#include <camera/Player.hpp>
 #include <shader/shader.hpp>
 #include <textures.hpp>
 #include <mesh.hpp>
