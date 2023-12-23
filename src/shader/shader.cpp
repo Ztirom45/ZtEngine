@@ -143,11 +143,10 @@ void Shader::update_uniforms(glm::mat4 m_model,GLuint texture_id){
 	GLint TextureLocation = glGetUniformLocation(this->ShaderProgramm, "Texture");
 ;	
 	if(TextureLocation>=0){
-		//glActiveTexture(GL_TEXTURE0+0);//texture at position 0
-		//printf("T:%d\n",texture_id);
-		//glBindTexture(GL_TEXTURE_2D, 1);
-		
-		glUniform1i(TextureLocation,texture_id);//texture from position 0
+		texture_id = 2;
+		glActiveTexture(GL_TEXTURE0+texture_id);//texture at position texture_id
+		glBindTexture(GL_TEXTURE_2D, 1);
+		glUniform1i(TextureLocation,texture_id);//texture from position texture_id
 	}else{
 		std::cout << "error: couldn't find Texture\n";
 		//exit(EXIT_FAILURE);

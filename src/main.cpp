@@ -51,7 +51,7 @@ class App{
 		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,24);//24bit DepthBuffer
 		
 		//create open gl window
-		screen = SDL_CreateWindow("SDL+OGL",0,32,Win_W,Win_H,SDL_WINDOW_OPENGL);
+		screen = SDL_CreateWindow("ZtEngineDemo",0,32,Win_W,Win_H,SDL_WINDOW_OPENGL);
 		
 		//create ogl context
 		GLContext = SDL_GL_CreateContext(screen);
@@ -67,6 +67,7 @@ class App{
 		
 		//enable GL capabilities
 		glEnable(GL_TEXTURE_2D);
+
 
 		
 	};

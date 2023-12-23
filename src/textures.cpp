@@ -44,6 +44,8 @@ void Textures::load_GL_textures(){
 			
 			//clear surface
 			SDL_FreeSurface(surface);
+
+			printf("%s: %d\n",str,this->textures[str]);
 		}
 		closedir(dir);
 	}else{//error if directory doens't exist

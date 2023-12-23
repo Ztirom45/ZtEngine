@@ -13,6 +13,14 @@ Player::Player(glm::vec3 pos,
 	:Camera(pos,CameraDistanceToPlayer,yaw,pitch){
 	this->loop = LoopConditionVar;
 }
+
+void Player::init_mesh(Shader *ptrShader,GLuint textureId){
+	this->ptrShader = ptrShader;
+	ptrPlayerMesh = new Mesh(this->ptrShader,textureId,
+			  this->position,{0.0f,0.0f,0.0f});
+	ptrPlayerMesh->setup_mesh();
+}
+
 void Player::set_key_state(int position,bool state){
 	if(position>=0&&position<keysSIZE){
 		this->keys[position] = state;
@@ -94,3 +102,10 @@ void Player::update_player(){
 	this->Move();
 	this->update_camera();
 };
+
+void Player::update_mesh(){
+	this->ptrPlayerMesh->model_pos = this->position;
+	std::cout << "hi:"<< this->yaw << "\n";
+	this->ptrPlayerMesh->model_rot.y = -glm::degrees(this->yaw)-90;
+	this->ptrPlayerMesh->update_model_matrix();
+}

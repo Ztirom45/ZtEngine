@@ -32,6 +32,7 @@ class Mesh{
 		//Shader pointer
 		Shader *ptrShader;
 		
+		//sahder texture position rotation
 		Mesh(Shader*,GLuint,glm::vec3,glm::vec3);
 		
 		//updates the model matrix using model_rot and model_pos,
