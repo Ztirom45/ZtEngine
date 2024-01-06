@@ -90,7 +90,6 @@ GLuint Shader::CompileShader(GLuint type, const std::string& code){
 };
 
 void Shader::CreateShader(){
-	//printf("val:%d %d\n",&this->app.loop);
 	ShaderProgramm = glCreateProgram();
 	
 	GLuint VetexShader = CompileShader(GL_VERTEX_SHADER,vs_data);
@@ -143,10 +142,10 @@ void Shader::update_uniforms(glm::mat4 m_model,GLuint texture_id){
 	GLint TextureLocation = glGetUniformLocation(this->ShaderProgramm, "Texture");
 ;	
 	if(TextureLocation>=0){
-		texture_id = 2;
-		glActiveTexture(GL_TEXTURE0+texture_id);//texture at position texture_id
-		glBindTexture(GL_TEXTURE_2D, 1);
-		glUniform1i(TextureLocation,texture_id);//texture from position texture_id
+		//std::cout << "tex_id: "<< texture_id << "\n";
+		glActiveTexture(GL_TEXTURE0+0);//texture at position texture_id
+		glBindTexture(GL_TEXTURE_2D, texture_id);
+		glUniform1i(TextureLocation,0);//texture from position texture_id
 	}else{
 		std::cout << "error: couldn't find Texture\n";
 		//exit(EXIT_FAILURE);

@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/path/to/your/project/",
+    "file": "src/main.cpp",
+    "command": "g++  -o main src/main.cpp ./glad/glad.c  src/shader/shader.cpp  src/camera/camera.cpp src/camera/Player.cpp src/textures.cpp src/mesh.cpp src/chunks/chunk_build_helper.cpp  src/chunks/chunk.cpp  src/chunks/world.cpp src/scene.cpp  -I/usr/include -I./src -I./ -lGL -lSDL2 -lSDL2_image -ldl"
+  }
+]

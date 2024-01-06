@@ -23,7 +23,6 @@ World::World(GLuint TextureMap,Scene *ptrScene){
 		int chunkx = (i-chunkz*WORLD_SIZE);
 		chunkz+=this->playerChunkPos.y-WORLD_SIZE_OFFSET;
 		chunkx+=this->playerChunkPos.x-WORLD_SIZE_OFFSET;
-		printf("chunkspos: %d %d\n",chunkx,chunkz);
 		this->chunks[i] = new Chunk(glm::ivec3(chunkx,0.0f,chunkz),this);
 
 	}
@@ -53,9 +52,6 @@ void World::updatePlayerChunkPos(){
 	if(this->ptrPlayer->position.x<0){playerChunkPos.x-=1;}
 	if(this->ptrPlayer->position.z<0){playerChunkPos.y-=1;}
 
-	printf("(%d %d)  (%f %f)\n",playerChunkPos.x,playerChunkPos.y,
-		this->ptrPlayer->position.x,this->ptrPlayer->position.z);
-
 
 	//move chunks
 	if(this->isInit){
@@ -64,12 +60,10 @@ void World::updatePlayerChunkPos(){
 		if(playerChunkPos.x!=oldPlayerChunkPos.x){
 			moved = true;
 			moveDirection.x = playerChunkPos.x - oldPlayerChunkPos.x;
-			printf("updated X\n");
 		}
 		if(playerChunkPos.y!=oldPlayerChunkPos.y){
 			moved = true;
 			moveDirection.y = playerChunkPos.y - oldPlayerChunkPos.y;
-			printf("update Y\n");
 		}
 		if(moved){
 			this->moveChunkPos(moveDirection);
@@ -79,8 +73,6 @@ void World::updatePlayerChunkPos(){
 };
 
 void World::moveChunkPos(glm::ivec2 moveDirection){
-	//TODO copiing memory corectly
-	//array that will be copied into chunks after moving and index changing
 	
 	Chunk *chunks_copy[WORLD_AREA];
 
@@ -90,7 +82,6 @@ void World::moveChunkPos(glm::ivec2 moveDirection){
 		
 		//old positioon of the data for this chunk
 		int old_chunk_x_index = chunkx+moveDirection.x;
-		//std::cout << chunkx << " " << old_chunk_x_index << "\n";
 		int old_chunk_z_index = chunkz+moveDirection.y;
 		
 		int old_chunk_index = old_chunk_x_index+old_chunk_z_index*WORLD_SIZE;
@@ -100,7 +91,6 @@ void World::moveChunkPos(glm::ivec2 moveDirection){
 		
 		
 		
-		std::cout << i << " " << old_chunk_index << "\n";
 		if(0 <= old_chunk_x_index && old_chunk_x_index < WORLD_SIZE &&
 		   0 <= old_chunk_z_index && old_chunk_z_index < WORLD_SIZE){
 			chunks_copy[i] = this->chunks[old_chunk_x_index+old_chunk_z_index*WORLD_SIZE]

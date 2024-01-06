@@ -19,7 +19,6 @@ Scene::Scene(Shader* ptrShader,Player* ptrPlayer) {
 	this->ptrTextures = new Textures;
 	this->ptrShader = ptrShader;
 	this->ptrPlayer = ptrPlayer;
-	this->ptrWorld = new World(this->ptrTextures->textures[std::string("img/tiles32.png")],this);
 }
 
 Scene::~Scene(){
@@ -29,6 +28,8 @@ Scene::~Scene(){
 
 void Scene::init(){
 	this->ptrTextures->load_GL_textures();	
+	this->ptrWorld = new World(this->ptrTextures->textures[std::string("img/tiles32.png")],this);
+	std::cout << "img/tiles32.png: " << this->ptrTextures->textures[std::string("img/tiles32.png")] << "\n";
 	this->ptrWorld->init();
 	//init player
 	float W = 20;
