@@ -5,7 +5,6 @@ TIP:
 take a look into textures.hpp if you want know more about the functions 
 */
 #include <config.hpp>
-
 #include <textures.hpp>
 
 Textures::~Textures(){

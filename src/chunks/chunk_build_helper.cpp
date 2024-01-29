@@ -4,13 +4,6 @@ Voxel Chunk build helper libery from Ztirom's ZtEngine
 Importend: take a look ino chunk_build_helper.hpp if you want to know more abbout the functions
 */
 #include <config.hpp>
-#include <camera/Player.hpp>
-#include <shader/shader.hpp>
-#include <textures.hpp>
-#include <mesh.hpp>
-#include <chunks/chunk.hpp>
-#include <chunks/world.hpp>
-#include <chunks/chunk_build_helper.hpp>
 
 //IMPORTENT: only for visual use
 bool is_block_void(int global_x,int global_y,int global_z,World* ptrWorld,glm::vec2 player_pos){

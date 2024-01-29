@@ -105,6 +105,6 @@ void Player::update_player(){
 
 void Player::update_mesh(){
 	this->ptrPlayerMesh->model_pos = this->position;
-	this->ptrPlayerMesh->model_rot.y = -glm::degrees(this->yaw)-90;
+	this->ptrPlayerMesh->model_rot.y = -glm::degrees(this->yaw)+90;
 	this->ptrPlayerMesh->update_model_matrix();
 }

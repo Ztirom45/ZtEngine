@@ -2,17 +2,6 @@
 
 #include <config.hpp>
 
-
-#include <camera/Player.hpp>
-#include <shader/shader.hpp>
-#include <textures.hpp>
-#include <mesh.hpp>
-#include <chunks/world.hpp>
-#include <chunks/chunk.hpp>
-#include <scene.hpp>
-
-
-
 class App{
 	public:
 	

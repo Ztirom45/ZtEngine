@@ -13,6 +13,8 @@ FILES += src/chunks/chunk_build_helper.cpp
 FILES += src/chunks/chunk.cpp 
 FILES += src/chunks/world.cpp
 FILES += src/scene.cpp
+FILES += src/hitbox.cpp
+
 
 # Build the main executable
 all:

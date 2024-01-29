@@ -5,6 +5,9 @@ Shader liberry header from Ztirom45 ZtEngine
 
 #pragma once
 
+
+#include <config.hpp>
+
 class Shader{
 	public:
 		

@@ -5,11 +5,7 @@ Scene liberry header from Ztrom45's ZtEngine
 
 #pragma once
 
-//forward declaration of World, Shader and Texture
-class World;
-class Shader;
-class Texture;
-class Player;
+#include <config.hpp>
 
 class Scene{
 	public:	

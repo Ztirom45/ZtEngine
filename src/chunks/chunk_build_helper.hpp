@@ -12,8 +12,8 @@ If you want to use a global config file for World consts define `WORLD_IN_GLOBAL
 #pragma once
 
 #include <config.hpp>
-
 class World;
+class Chunk;
 
 //consts
 #ifndef CHUNK_IN_GLOBAL_CONFIG

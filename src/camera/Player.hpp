@@ -4,7 +4,6 @@ Player(Camera + Keybord control) libery from Ztirom's ZtEngine
 */
 
 #pragma once
-
 #include <camera/camera.hpp>
 #include <config.hpp>
 
@@ -25,6 +24,7 @@ class Player: public Camera{
 		bool *loop;
 		Shader *ptrShader;
 		Mesh *ptrPlayerMesh;
+		//Hitbox *ptrHitbox;
 
 		Player(glm::vec3,float,float,float,bool*);
 	

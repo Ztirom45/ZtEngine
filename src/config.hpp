@@ -31,10 +31,8 @@
 #include <shader/shader.hpp>
 #include <textures.hpp>
 #include <mesh.hpp>
+#include <chunks/chunk_build_helper.hpp>
+#include <chunks/chunk.hpp>
 #include <chunks/world.hpp>
-#include <chunks/chunk.hpp> 
-
-
-//debug remove in later builds
-#include <typeinfo>
-
+#include <hitbox.hpp>
+#include <scene.hpp>

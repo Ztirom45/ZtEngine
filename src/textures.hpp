@@ -8,6 +8,8 @@ If you want to use a global config file for camera consts define `TEXTURE_IN_GLO
 
 #pragma once
 
+#include <config.hpp>
+
 #ifndef TEXTURE_IN_GLOBAL_CONFIG
 	#define TEXTURE_IN_LOCAL_CONFIG
 

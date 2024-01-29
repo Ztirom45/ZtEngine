@@ -8,6 +8,7 @@ config in chunk_build_helper
 #pragma once
 
 
+#include <config.hpp>
 #include <chunks/chunk_build_helper.hpp>
 
 class Chunk{

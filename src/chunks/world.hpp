@@ -8,7 +8,7 @@ voxel World libery from Ztirom's ZtEngine
 //forward declerations:
 class Scene;
 
-#include "chunk.hpp"
+#include <chunks/chunk.hpp>
 
 class World{
 	public:
