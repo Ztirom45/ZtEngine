@@ -34,10 +34,7 @@ void Scene::init(){
 		(RectF){12.0f/W,10.0f/H,3.0f/W,3.0f/H},
 	};
 	
-	this->ptrPlayer->init_mesh(this->ptrShader,this->ptrTextures->textures[std::string("img/Alien.png")]);
-
-	
-	//TODO: add texRect Array
+	this->ptrPlayer->init_model(this->ptrShader,this->ptrTextures->textures[std::string("img/Alien.png")]);
 	
 	//head
 	this->ptrPlayer->ptrPlayerMesh->add_cube({-0.25,0.4,-0.25},
@@ -104,13 +101,12 @@ void Scene::init(){
 				texRects[3],
 
 			},{1,1,1,1,1,1},0.2);
-	this->ptrPlayer->ptrPlayerMesh->update_mesh();
-
+		this->ptrPlayer->update_model();
 
 };
 void Scene::update(){
 	this->ptrWorld->update();
-	this->ptrPlayer->update_mesh();
+	this->ptrPlayer->update_mesh_arguments();
 };
 
 void Scene::draw(){

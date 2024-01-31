@@ -14,11 +14,17 @@ Player::Player(glm::vec3 pos,
 	this->loop = LoopConditionVar;
 }
 
-void Player::init_mesh(Shader *ptrShader,GLuint textureId){
+void Player::init_model(Shader *ptrShader,GLuint textureId){
 	this->ptrShader = ptrShader;
-	ptrPlayerMesh = new Mesh(this->ptrShader,textureId,
+	this->ptrPlayerMesh = new Mesh(this->ptrShader,textureId,
 			  this->position,{0.0f,0.0f,0.0f});
-	ptrPlayerMesh->setup_mesh();
+	this->ptrPlayerMesh->setup_mesh();
+	this->ptrPlayerHitbox = new Hitbox();
+	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
+}
+void Player::update_model(){
+	this->ptrPlayerMesh->update_mesh();
+	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
 }
 
 void Player::set_key_state(int position,bool state){
@@ -57,7 +63,6 @@ void Player::handle_events(){
 	}
 }
 void Player::Move(){//move the player with the inputs in keys
-
 	//transformation
 	if(this->keys[SDLK_w]){
 		this->move_forward(0.1);
@@ -103,8 +108,9 @@ void Player::update_player(){
 	this->update_camera();
 };
 
-void Player::update_mesh(){
+void Player::update_mesh_arguments(){
 	this->ptrPlayerMesh->model_pos = this->position;
 	this->ptrPlayerMesh->model_rot.y = -glm::degrees(this->yaw)+90;
 	this->ptrPlayerMesh->update_model_matrix();
 }
+

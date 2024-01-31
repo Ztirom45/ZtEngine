@@ -11,7 +11,7 @@ class Hitbox{
 		  Importend: w,h,d are coordinates
 				not relative to x,y,z
 		*/
-		CubeF box;
+		CubeF box = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 		Hitbox();
 		
 		/*

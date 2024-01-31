@@ -10,6 +10,7 @@ Player(Camera + Keybord control) libery from Ztirom's ZtEngine
 //forward declaraitions
 class Mesh;
 class Shader;
+class Hitbox;
 
 #define keysSIZE 1073742050
 
@@ -24,14 +25,15 @@ class Player: public Camera{
 		bool *loop;
 		Shader *ptrShader;
 		Mesh *ptrPlayerMesh;
-		//Hitbox *ptrHitbox;
+		Hitbox *ptrPlayerHitbox;
 
 		Player(glm::vec3,float,float,float,bool*);
 	
-		//initialization after constructor, so that the player and mesh can be initilized after openGL initizilizing
-		void init_mesh(Shader*,GLuint);
-
-
+		//initialization after constructor, so that the mesh&hitbox can be initilized after openGL initizilizing
+		void init_model(Shader*,GLuint);
+		
+		//updates the hitbox&mesh use it after changes in the mesh data
+		void update_model();
 		//set and get keys states funciton to reduce data coruption
 		void set_key_state(int,bool);
 		bool get_key_state(int);
@@ -46,5 +48,5 @@ class Player: public Camera{
 		void update_player();
 
 		//updates the position of the mesh to player pos
-		void update_mesh();
+		void update_mesh_arguments();
 };

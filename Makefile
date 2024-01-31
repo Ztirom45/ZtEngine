@@ -1,6 +1,6 @@
 # Declare compiler tools and flags
 CC      = g++
-CFLAGS = -I/usr/include -I./src -I./
+CFLAGS = -g -I/usr/include -I./src -I./
 LDLIBS  = -lGL -lSDL2 -lSDL2_image -ldl
 FILES  = src/main.cpp
 FILES += ./glad/glad.c 
