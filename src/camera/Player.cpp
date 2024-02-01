@@ -21,6 +21,8 @@ void Player::init_model(Shader *ptrShader,GLuint textureId){
 	this->ptrPlayerMesh->setup_mesh();
 	this->ptrPlayerHitbox = new Hitbox();
 	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
+	//hitboxtest (remove Later)
+	printf("Debug%d\n",this->ptrPlayerHitbox->colide(glm::vec3(0.0f,0.0f,0.0f)));
 }
 void Player::update_model(){
 	this->ptrPlayerMesh->update_mesh();
