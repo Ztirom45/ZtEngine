@@ -33,4 +33,5 @@ class Hitbox{
 			- world
 		*/
 		bool colide(glm::vec3 pos);
+		bool colide(Hitbox ptrHitbox2);
 };

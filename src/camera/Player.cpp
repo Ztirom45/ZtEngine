@@ -21,8 +21,6 @@ void Player::init_model(Shader *ptrShader,GLuint textureId){
 	this->ptrPlayerMesh->setup_mesh();
 	this->ptrPlayerHitbox = new Hitbox();
 	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
-	//hitboxtest (remove Later)
-	printf("Debug%d\n",this->ptrPlayerHitbox->colide(glm::vec3(0.0f,0.0f,0.0f)));
 }
 void Player::update_model(){
 	this->ptrPlayerMesh->update_mesh();
@@ -101,6 +99,8 @@ void Player::Move(){//move the player with the inputs in keys
 	if(this->keys[SDLK_RIGHT]){
 		this->rotate_yaw(glm::radians(-1.0f));
 	}
+	//hitboxtest (remove Later)
+	printf("Debug%d\n",this->ptrPlayerHitbox->colide(glm::vec3(0.0f,0.1f,0.0f)));
 
 };
 

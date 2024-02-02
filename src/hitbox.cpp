@@ -43,3 +43,10 @@ bool Hitbox::colide(glm::vec3 pos){
 		pos.y>this->box.y&&pos.y<this->box.h&&
 		pos.z>this->box.z&&pos.z<this->box.d;
 }
+
+bool Hitbox::colide(Hitbox ptrHitbox2){
+	return 
+		this->colide(glm::vec3(ptrHitbox2.box.x,ptrHitbox2.box.y,ptrHitbox2.box.z))||
+		this->colide(glm::vec3(ptrHitbox2.box.x+ptrHitbox2.box.w,ptrHitbox2.box.y+ptrHitbox2.box.h,ptrHitbox2.box.z+ptrHitbox2.box.d));
+		//other box
+}
