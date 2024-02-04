@@ -34,7 +34,7 @@ void Scene::init(){
 		(RectF){12.0f/W,10.0f/H,3.0f/W,3.0f/H},
 	};
 	
-	this->ptrPlayer->init_model(this->ptrShader,this->ptrTextures->textures[std::string("img/Alien.png")]);
+	this->ptrPlayer->init_model(this,this->ptrTextures->textures[std::string("img/Alien.png")]);
 	
 	//head
 	this->ptrPlayer->ptrPlayerMesh->add_cube({-0.25,0.4,-0.25},

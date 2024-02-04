@@ -1,5 +1,6 @@
 #include "types.hpp"
 #include <cstdio>
+#include <glm/fwd.hpp>
 #include <hitbox.hpp>
 
 Hitbox::Hitbox(){
@@ -38,6 +39,7 @@ void Hitbox::update_mesh(Mesh* ptrMesh){
 	printf("end\n");	
 }
 
+//TODO own position + rotation
 bool Hitbox::colide(glm::vec3 pos){
 	return  pos.x>this->box.x&&pos.x<this->box.w&&
 		pos.y>this->box.y&&pos.y<this->box.h&&
@@ -45,8 +47,18 @@ bool Hitbox::colide(glm::vec3 pos){
 }
 
 bool Hitbox::colide(Hitbox ptrHitbox2){
-	return 
-		this->colide(glm::vec3(ptrHitbox2.box.x,ptrHitbox2.box.y,ptrHitbox2.box.z))||
-		this->colide(glm::vec3(ptrHitbox2.box.x+ptrHitbox2.box.w,ptrHitbox2.box.y+ptrHitbox2.box.h,ptrHitbox2.box.z+ptrHitbox2.box.d));
-		//other box
+	return	ptrHitbox2.box.w>this->box.x&&ptrHitbox2.box.x<this->box.w&&
+		ptrHitbox2.box.h>this->box.y&&ptrHitbox2.box.y<this->box.h&&
+		ptrHitbox2.box.d>this->box.z&&ptrHitbox2.box.z<this->box.d;
+
+}
+
+
+bool Hitbox::colide(World* ptrWorld){
+	for(int x=(int)this->box.x;x<=(int)this->box.w;x++){
+		for(int z=(int)this->box.z;z<=(int)this->box.d;z++){
+			printf("Debug:%d %d\n",x,z);
+		}
+	}
+	return false;
 }

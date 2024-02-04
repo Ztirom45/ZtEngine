@@ -18,20 +18,15 @@ class Hitbox{
 		initilize after shader and open Gl stuf
 
 		*/
-		void init(Mesh* ptrMesh);
+		void init(Mesh*);
 
 		/*
 		 update Mesh
 		*/
 
-		void update_mesh(Mesh* ptrMesh);
+		void update_mesh(Mesh*);
 
-		/*
-		colide with:
-			- vec3
-			- Hitbox
-			- world
-		*/
-		bool colide(glm::vec3 pos);
-		bool colide(Hitbox ptrHitbox2);
+		bool colide(glm::vec3);
+		bool colide(Hitbox);
+		bool colide(World*);
 };

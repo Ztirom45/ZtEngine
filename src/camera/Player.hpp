@@ -11,6 +11,7 @@ Player(Camera + Keybord control) libery from Ztirom's ZtEngine
 class Mesh;
 class Shader;
 class Hitbox;
+class Scene;
 
 #define keysSIZE 1073742050
 
@@ -23,14 +24,14 @@ class Player: public Camera{
 		// a pointer to the condtion of the main loop,
 		// so that the loop could be quit, if the exit event is triggert
 		bool *loop;
-		Shader *ptrShader;
 		Mesh *ptrPlayerMesh;
 		Hitbox *ptrPlayerHitbox;
+		Scene *ptrScene;
 
 		Player(glm::vec3,float,float,float,bool*);
 	
 		//initialization after constructor, so that the mesh&hitbox can be initilized after openGL initizilizing
-		void init_model(Shader*,GLuint);
+		void init_model(Scene*,GLuint);
 		
 		//updates the hitbox&mesh use it after changes in the mesh data
 		void update_model();

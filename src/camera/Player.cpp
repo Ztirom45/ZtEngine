@@ -14,9 +14,9 @@ Player::Player(glm::vec3 pos,
 	this->loop = LoopConditionVar;
 }
 
-void Player::init_model(Shader *ptrShader,GLuint textureId){
-	this->ptrShader = ptrShader;
-	this->ptrPlayerMesh = new Mesh(this->ptrShader,textureId,
+void Player::init_model(Scene *ptrScene,GLuint textureId){
+	this->ptrScene = ptrScene;
+	this->ptrPlayerMesh = new Mesh(this->ptrScene->ptrShader,textureId,
 			  this->position,{0.0f,0.0f,0.0f});
 	this->ptrPlayerMesh->setup_mesh();
 	this->ptrPlayerHitbox = new Hitbox();
@@ -100,7 +100,9 @@ void Player::Move(){//move the player with the inputs in keys
 		this->rotate_yaw(glm::radians(-1.0f));
 	}
 	//hitboxtest (remove Later)
-	printf("Debug%d\n",this->ptrPlayerHitbox->colide(glm::vec3(0.0f,0.1f,0.0f)));
+	//Hitbox testHitbox;
+	//testHitbox.box = {0.1,0.1,0.1,0.2,0.2,0.2};
+	printf("Debug%d\n",this->ptrPlayerHitbox->colide(this->ptrScene->ptrWorld));
 
 };
 
