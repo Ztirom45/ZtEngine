@@ -111,6 +111,8 @@ void Scene::update(){
 
 void Scene::draw(){
 	this->ptrWorld->draw();
+	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 	this->ptrPlayer->ptrPlayerMesh->draw();
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 

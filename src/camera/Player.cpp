@@ -20,11 +20,11 @@ void Player::init_model(Scene *ptrScene,GLuint textureId){
 			  this->position,{0.0f,0.0f,0.0f});
 	this->ptrPlayerMesh->setup_mesh();
 	this->ptrPlayerHitbox = new Hitbox();
-	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
+	this->ptrPlayerHitbox->init(this->ptrPlayerMesh,this->ptrScene);
 }
 void Player::update_model(){
 	this->ptrPlayerMesh->update_mesh();
-	this->ptrPlayerHitbox->init(this->ptrPlayerMesh);
+	this->ptrPlayerHitbox->update_mesh(this->ptrPlayerMesh);
 }
 
 void Player::set_key_state(int position,bool state){

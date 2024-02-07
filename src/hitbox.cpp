@@ -6,8 +6,11 @@
 Hitbox::Hitbox(){
 }
 
-void Hitbox::init(Mesh *ptrMesh){
+void Hitbox::init(Mesh *ptrMesh,Scene* ptrScene){
 	this->update_mesh(ptrMesh);
+	
+	this->ptrDebugMesh = new Mesh(ptrScene->ptrShader,0,
+			glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,0.0f));
 }
 
 void Hitbox::update_mesh(Mesh* ptrMesh){
