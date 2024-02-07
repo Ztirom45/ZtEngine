@@ -24,6 +24,12 @@ class Scene{
 		//update the whole scene
 		void update();
 		
-		//draw the whole scene
+		//draw debug stuff like hitboxes
+		void draw_debug();
+
+		//draw models and the whole scene
+		void draw_scene();
+		//draw function calls draw_debug and draw_scene
+		//used in main
 		void draw();
 };

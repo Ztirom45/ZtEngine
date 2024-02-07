@@ -4,6 +4,7 @@ Scene libery from Ztirom45's ZtEngine
 TIP: If you want to know more about the functions take a look into the header
 */
 
+#include "scene.hpp"
 #include <shader/shader.hpp>
 
 Scene::Scene(Shader* ptrShader,Player* ptrPlayer) {
@@ -109,10 +110,18 @@ void Scene::update(){
 	this->ptrPlayer->update_mesh_arguments();
 };
 
-void Scene::draw(){
-	this->ptrWorld->draw();
+void Scene:draw_debug(){	
 	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-	this->ptrPlayer->ptrPlayerMesh->draw();
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
+void Scene::draw_scene(){
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	this->ptrWorld->draw();
+	this->ptrPlayer->ptrPlayerMesh->draw();
+
+}
+
+void Scene::draw(){
+	this->draw_debug();
+	this->draw_scene();
+}
