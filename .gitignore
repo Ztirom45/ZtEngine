@@ -1,0 +1,3 @@
+#ignore all debug core files because of the size
+core.*
+

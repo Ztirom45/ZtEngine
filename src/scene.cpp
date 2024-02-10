@@ -110,18 +110,19 @@ void Scene::update(){
 	this->ptrPlayer->update_mesh_arguments();
 };
 
-void Scene:draw_debug(){	
-	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+void Scene::draw_debug(){	
+	this->ptrPlayer->ptrPlayerHitbox->ptrDebugMesh->draw();
 }
 
 void Scene::draw_scene(){
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	this->ptrWorld->draw();
 	this->ptrPlayer->ptrPlayerMesh->draw();
 
 }
 
 void Scene::draw(){
+	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 	this->draw_debug();
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	this->draw_scene();
 }
