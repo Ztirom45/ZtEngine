@@ -2,6 +2,7 @@
 hitbox library from Ztirom45's ZtEngine
 
 TIP: If you want to know more about the functions take a look into the header
+WARNING: this hitbox lib is experimental and doesn't work right. Please dont use it, if you don't no what you doing!
 */
 
 #include "types.hpp"
